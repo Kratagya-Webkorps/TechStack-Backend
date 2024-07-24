@@ -16,7 +16,7 @@ const {
   deleteProductFromCart,
   removeFromWishlist,
 } = require("../../controllers/products");
-const { createOrder, getAllOrdersData } = require("../../controllers/orders");
+const { createOrder, getAllOrdersData, deletePurchaseOrder } = require("../../controllers/orders");
 
 router.get("/", async (req, res) => {
   return res.status(200).json({ type: "user", user: serializeUser(req.user) });
@@ -36,6 +36,7 @@ router.post("/get-orders", getAllOrdersData);
 router.post("/add-to-wishlist", addProductToWishlist);
 router.post("/get-wishlist", getAllWishlistProducts);
 router.post("/delete-from-wishlist", removeFromWishlist);
+router.delete("/delete-from-order", deletePurchaseOrder);
 router.post("/orders", async (req, res) => {
   const { amount, currency } = req.body;
   const razorpay = new Razorpay({

@@ -326,6 +326,8 @@ const removeFromWishlist = async (req, res) => {
   }
 };
 
+
+
 module.exports = {
   getAllProducts,
   getProductById,
@@ -341,4 +343,5 @@ module.exports = {
   addProductToWishlist,
   getAllWishlistProducts,
   removeFromWishlist,
+  
 };
